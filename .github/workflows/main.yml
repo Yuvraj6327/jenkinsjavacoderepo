@@ -8,6 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Code
-      uses: actions/checkout@v3.9.9
+      uses: actions/checkout@v4
     - name: Build Java package
       run: mvn clean install -f Javarepo1/pom.xml
+    - name: SonarCloud Scan
+      run: mvn sonar:sonar -f Javarepo1/pom.xml  -Dsonar.projectKey=yuvraj6327 -Dsonar.organization=Yuvraj6327 -Dsonar.host.url=https://sonarcloud.io -Dsonar.login=yuvraj6327 -Dsonar.token=f721bcb6d5ea51d626c23b0b36ed162fcee9002c
